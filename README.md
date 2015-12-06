@@ -10,12 +10,33 @@ $ npm install codemirror-widgets
 
 ### Usage
 
+Example, replace LaTeX math (`$$ ... $$`) by a preview using [KaTeX](https://github.com/Khan/KaTeX)
+
 ```js
 var widgets = require('codemirror-widgets');
+var katex = require('katex');
 
 // Create a type of widget
-var WidgetLink = widgets.createType({
+var WidgetMath = widgets.createType({
+    mixins: [
+        widgets.mixins.re(/\$\$([^$]+)\$\$/g, function(match) {
+            return {
+                props: {
+                    text: match[1]
+                }
+            };
+        })
+    ],
 
+    createElement: function(widget) {
+        // Create the spam to replace the formula
+        var span = document.createElement('span');
+
+        // Render the formula using katex
+        katex.render(widget.props.text, span)
+
+        return span;
+    }
 });
 
 
@@ -28,7 +49,7 @@ manager.enable(WidgetLink);
 
 ### Mixins
 
-Some prebuilt mixins make it event easier to create widgets:
+Some prebuilt mixins make it event easier to create awesome widgets:
 
 ##### `re`
 
@@ -52,7 +73,7 @@ var widgetMath = widgets.createType({
 
 ##### `menu`
 
-Bind a menu with multiple actions to your widgets:
+Bind a menu with multiple actions to your widgets. The menu will show up on click (like on Gmail).
 
 ```js
 var widgetLink = widgets.createType({
