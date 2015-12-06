@@ -35,7 +35,7 @@ Some prebuilt mixins make it event easier to create widgets:
 Find occurrence using a Regex:
 
 ```js
-var widgetMath = new widgets.Type({
+var widgetMath = widgets.createType({
     mixins: [
         widgets.mixins.re(/\$\$([^$]+)\$\$/g, function(match) {
             return {
@@ -55,7 +55,7 @@ var widgetMath = new widgets.Type({
 Bind a menu with multiple actions to your widgets:
 
 ```js
-var widgetLink = new widgets.Type({
+var widgetLink = widgets.createType({
     mixins: [
         widgets.mixins.menu({
             entries: [
