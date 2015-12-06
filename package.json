@@ -1,6 +1,7 @@
 {
     "name": "codemirror-widgets",
     "version": "0.0.0",
+    "main": "./lib/index.js",
     "author": "Samy Pessé <samypesse@gmail.com>",
     "description": "Utility to write interactive widgets for CodeMirror",
     "bugs": "https://github.com/SamyPesse/codemirror-widgets/issues",

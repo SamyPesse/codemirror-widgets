@@ -14,16 +14,16 @@ $ npm install codemirror-widgets
 var widgets = require('codemirror-widgets');
 
 // Create a type of widget
-var widgetLink = new widgets.Type({
+var WidgetLink = widgets.createType({
 
 });
 
 
 // Create a widgets manager connected to an editor
-var manager = widgets.Manager(editor);
+var manager = widgets.createManager(editor);
 
 // Connect a type of widget to the manager
-manager.enable(widgetLink);
+manager.enable(WidgetLink);
 ```
 
 ### Mixins
