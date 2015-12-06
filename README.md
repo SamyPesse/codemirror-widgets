@@ -32,10 +32,10 @@ Some prebuilt mixins make it event easier to create widgets:
 
 ##### `re`
 
-Easily find occurrence using a Regex:
+Find occurrence using a Regex:
 
-```
-var widgetLink = new widgets.Type({
+```js
+var widgetMath = new widgets.Type({
     mixins: [
         widgets.mixins.re(/\$\$([^$]+)\$\$/g, function(match) {
             return {
@@ -44,8 +44,31 @@ var widgetLink = new widgets.Type({
                 }
             };
         })
-    ]
-});
+    ],
 
+    ...
+});
 ```
 
+##### `menu`
+
+Bind a menu with multiple actions to your widgets:
+
+```js
+var widgetLink = new widgets.Type({
+    mixins: [
+        widgets.mixins.menu({
+            entries: [
+                {
+                    label: 'Open',
+                    click: function(widget) {
+                        window.open(widget.props.href, '_blank')
+                    }
+                }
+            ]
+        })
+    ],
+
+    ...
+});
+```
