@@ -25,7 +25,8 @@ var WidgetMath = widgets.createType({
                     text: match[1]
                 }
             };
-        })
+        }),
+        widgets.mixins.editDelimit('$$', '$$')
     ],
 
     createElement: function(widget) {
@@ -88,6 +89,21 @@ var widgetLink = widgets.createType({
                 }
             ]
         })
+    ],
+
+    ...
+});
+```
+
+
+##### `editDelimit`
+
+Helper to use delimiter to find edit range during changes
+
+```js
+var widgetLink = widgets.createType({
+    mixins: [
+        widgets.mixins.editDelimit('$$', '$$')
     ],
 
     ...
