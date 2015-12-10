@@ -96,14 +96,14 @@ var widgetLink = widgets.createType({
 ```
 
 
-##### `editDelimit`
+##### `editParagraph`
 
-Helper to use delimiter to find edit range during changes
+Helper to update a paragraph when user is typing
 
 ```js
 var widgetLink = widgets.createType({
     mixins: [
-        widgets.mixins.editDelimit('$$', '$$')
+        widgets.mixins.editParagraph()
     ],
 
     ...
