@@ -26,7 +26,7 @@ var WidgetMath = widgets.createType({
                 }
             };
         }),
-        widgets.mixins.editDelimit('$$', '$$')
+        widgets.mixins.editParagraph()
     ],
 
     createElement: function(widget) {
